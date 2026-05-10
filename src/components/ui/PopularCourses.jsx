@@ -25,10 +25,10 @@ export default async function PopularCourses() {
 
 
       {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  px-5 md:px-0">
         {
-        topCourses.map((topCourse, i) => (
-          <CourseCard key={i} topCourse={topCourse} rank={i + 1} />
+        topCourses.map((course, i) => (
+          <CourseCard key={i} course={course} rank={i + 1} />
         ))
         }
       </div>

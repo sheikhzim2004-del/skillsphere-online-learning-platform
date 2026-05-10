@@ -49,9 +49,9 @@ const StarIcon = ({ filled }) => (
   </svg>
 );
 
-const CourseCard = ({ topCourse }) => {
-  const c = colorMap[topCourse.category] || colorMap.Development;
-  const ratingPercent = ((topCourse.rating - 4.0) / 1.0) * 100;
+const CourseCard = ({ course }) => {
+  const c = colorMap[course.category] || colorMap.Development;
+  const ratingPercent = ((course.rating - 4.0) / 1.0) * 100;
 
   return (
     <div className={` relative group bg-slate-900 rounded-2xl border border-slate-700/60 hover:border-teal-500/50 transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl ${c.glow} hover:shadow-teal-500/30 ring-1 ${c.ring}`}>
@@ -59,8 +59,8 @@ const CourseCard = ({ topCourse }) => {
       {/* Course Image */}
       <div className="relative h-44 overflow-hidden">
         <Image
-          src={topCourse.image}
-          alt={topCourse.title}
+          src={course.image}
+          alt={course.title}
           height={400}
           width={400}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -69,14 +69,14 @@ const CourseCard = ({ topCourse }) => {
         {/* Category badge on image */}
         <div className="absolute bottom-3 left-3">
           <span className={`text-xs font-semibold px-3 py-1 rounded-full ${c.badge}`}>
-            {categoryIcons[topCourse.category] || "📚"} {topCourse.category}
+            {categoryIcons[course.category] || "📚"} {course.category}
           </span>
         </div>
 
         {/* Level tag */}
         <div className="absolute top-3 right-3">
           <span className="bg-slate-800/80 backdrop-blur text-slate-300 text-xs px-2 py-1 rounded-lg border border-slate-600/50">
-            {topCourse.level}
+            {course.level}
           </span>
         </div>
       </div>
@@ -85,16 +85,16 @@ const CourseCard = ({ topCourse }) => {
       <div className="p-5 space-y-4">
         {/* Title */}
         <h3 className="text-white font-bold text-base leading-snug line-clamp-2 group-hover:text-teal-300 transition-colors duration-300">
-          {topCourse.title}
+          {course.title}
         </h3>
 
         {/* Instructor */}
         <div className="flex items-center gap-2">
           <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${c.accent} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>
-            {topCourse.instructor.charAt(0)}
+            {course.instructor.charAt(0)}
           </div>
-          <p className="text-slate-400 text-sm truncate">{topCourse.instructor}</p>
-          <span className="ml-auto text-slate-500 text-xs">{topCourse.duration}</span>
+          <p className="text-slate-400 text-sm truncate">{course.instructor}</p>
+          <span className="ml-auto text-slate-500 text-xs">{course.duration}</span>
         </div>
 
         {/* Rating */}
@@ -102,9 +102,9 @@ const CourseCard = ({ topCourse }) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((i) => (
-                <StarIcon key={i} filled={i <= Math.round(topCourse.rating)} />
+                <StarIcon key={i} filled={i <= Math.round(course.rating)} />
               ))}
-              <span className="text-teal-400 font-bold text-sm ml-1">{topCourse.rating}</span>
+              <span className="text-teal-400 font-bold text-sm ml-1">{course.rating}</span>
             </div>
           </div>
           <div className="h-1.5 bg-slate-700 rounded-full overflow-hidden">
