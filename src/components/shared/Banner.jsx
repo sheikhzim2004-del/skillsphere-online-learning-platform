@@ -21,9 +21,9 @@ export default function Banner() {
 
 
       {/* Main container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-6 md:py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
         {/* Content container */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-6 order-2 md:order-1">
 
           {/* Eyebrow pill */}
           <span className="inline-flex items-center gap-2 self-start px-4 py-1.5 rounded-full border border-teal-400/30 bg-teal-400/10 text-teal-300 text-sm font-medium">
@@ -73,7 +73,7 @@ export default function Banner() {
           </div>
         </div>
         {/* Image container */}
-        <div className="flex-1 flex justify-center items-center">
+        <div className="flex-1 flex justify-center items-center order-1 md:order-2">
           <div className="relative w-full max-w-md aspect-square">
             <Image
               src={bannerImg}
