@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const colorMap = {
@@ -116,9 +117,11 @@ const CourseCard = ({ course }) => {
         </div>
 
         {/* Button */}
-        <button className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${c.btn} text-white text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg`}>
-          View Details →
-        </button>
+        <Link href={`/all-courses/${course.id}`}>
+          <button className={`w-full py-2.5 rounded-xl bg-gradient-to-r ${c.btn} text-white text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg`}>
+            View Details →
+          </button>
+        </Link>
       </div>
     </div>
   );
