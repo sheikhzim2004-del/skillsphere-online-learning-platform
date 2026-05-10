@@ -23,9 +23,18 @@ export default function Navbar() {
             {/* Dropdown menu */}
             {openBar && (
               <div className="absolute left-4 mt-2 border rounded-xl shadow-xl p-3 space-y-2">
-                <a className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500">Home</a>
-                <a className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500">Courses</a>
-                <a className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500">My Profile</a>
+                <Link 
+                href={"/"} 
+                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                >Home</Link>
+                <Link 
+                href={"/all-courses"}
+                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                >Courses</Link>
+                <Link 
+                href={"/profile"}
+                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                >My Profile</Link>
               </div>
             )}
           </div>
@@ -48,21 +57,21 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="#"
+              href="/"
               className="text-gray-500 hover:underline hover:text-blue-500 p-2 rounded-xl transition font-medium"
             >
               Home
             </Link>
 
             <Link
-              href="#"
+              href="/all-courses"
               className="text-gray-500 hover:underline hover:text-blue-500 p-2 rounded-xl transition font-medium"
             >
               Courses
             </Link>
 
             <Link
-              href="#"
+              href="/profile"
               className="text-gray-500 hover:underline hover:text-blue-500 p-2 rounded-xl transition font-medium"
             >
               My Profile
