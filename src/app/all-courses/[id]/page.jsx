@@ -18,7 +18,7 @@ const AllCourseDetailsPage = async ({ params }) => {
             <div className="min-h-screen bg-[#080d0f] text-white flex items-center justify-center p-6">
                 <div className="max-w-4xl w-full bg-[#0f1b1f] border border-teal-500/30 rounded-2xl shadow-lg overflow-hidden">
                 {/* back btn */}
-                <Link href={"/all-courses"}><button className='bg-blue-500 px-4 py-2 rounded-xl cursor-pointer flex items-center gap-2 mt-8 ml-8'><FaLongArrowAltLeft /> Back</button></Link>
+                <Link href={"/all-courses"}><button className='bg-teal-500 hover:bg-teal-400 px-4 py-2 rounded-xl cursor-pointer flex items-center gap-2 mt-8 ml-8'><FaLongArrowAltLeft /> Back</button></Link>
 
                     {/* Image */}
                     <Image

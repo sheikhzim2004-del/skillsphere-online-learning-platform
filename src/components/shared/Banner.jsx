@@ -14,7 +14,7 @@ const label = [
 
 export default function Banner() {
   return (
-    <section className="relative w-full min-h-[500px] bg-[#080d0f] overflow-hidden flex items-center">
+    <section className="relative w-full min-h-\[500px\] bg-[#080d0f] overflow-hidden flex items-center">
 
       <div className="absolute top-1/2 left-[15%] -translate-y-1/2 w-72 h-72 bg-teal-400 opacity-5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-80 h-80 bg-teal-400 opacity-5 rounded-full blur-3xl pointer-events-none" />
