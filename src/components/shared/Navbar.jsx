@@ -4,6 +4,7 @@ import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
+import { Button } from "@heroui/react";
 
 export default function Navbar() {
   const [openBar, setOpenBar] = useState(false);
@@ -13,9 +14,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Mobile Menu */}
           <div className="md:hidden">
-            <button 
-            className="p-2 rounded-lg border cursor-pointer hover:border-blue-500 transition"
-            onClick={() => setOpenBar(!openBar)}
+            <button
+              className="p-2 rounded-lg border cursor-pointer hover:border-blue-500 transition"
+              onClick={() => setOpenBar(!openBar)}
             >
               <FaBars />
             </button>
@@ -23,17 +24,17 @@ export default function Navbar() {
             {/* Dropdown menu */}
             {openBar && (
               <div className="absolute left-4 mt-2 border rounded-xl shadow-xl p-3 space-y-2">
-                <Link 
-                href={"/"} 
-                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                <Link
+                  href={"/"}
+                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
                 >Home</Link>
-                <Link 
-                href={"/all-courses"}
-                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                <Link
+                  href={"/all-courses"}
+                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
                 >Courses</Link>
-                <Link 
-                href={"/profile"}
-                className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                <Link
+                  href={"/profile"}
+                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
                 >My Profile</Link>
               </div>
             )}
@@ -80,29 +81,18 @@ export default function Navbar() {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Logged Out State */}
-            <button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:text-blue-500 cursor-pointer transition font-medium">
-              Login
-            </button>
+            <Link href={"/login"}>
+              <Button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium">
+                Login
+              </Button>
+            </Link>
 
-            <button className="btn px-5 border border-gray-300 py-2 rounded-xl hover:text-blue-500 bg-black text-white transition font-medium">
-              Register
-            </button>
+            <Link href={"/register"}>
+              <Button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium">
+                Register
+              </Button>
+            </Link>
 
-            {/* Logged In State Example */}
-            {/*
-            <div className="flex items-center gap-3">
-              <img
-                src="https://i.ibb.co/4pDNDk1/avatar.png"
-                alt="User"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-
-              <button className="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition">
-                Logout
-              </button>
-            </div>
-            */}
           </div>
         </div>
       </div>
