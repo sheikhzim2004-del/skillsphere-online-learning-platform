@@ -4,13 +4,32 @@ import { Check } from "lucide-react";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 export default function RegisterPage() {
 
     const {register, handleSubmit,} = useForm();
 
-    const handleRegisterFunc = (data) => {
-        console.log("Form Data:", data);
+    const handleRegisterFunc = async(data) => {
+        const { name, photoUrl, email, password } = data;
+
+        const {data:res, error} = await authClient.signUp.email({
+            name,
+            email,
+            password,
+            photoUrl,
+            callbackURL: "/login",
+
+        })
+        console.log(res, error);
+
+        if(error){
+            alert("Registration failed: " + error.message);
+        }
+        if(res){
+            alert("Registration successful! Please check your email to verify your account.");
+        }
+
     };
 
     return (
