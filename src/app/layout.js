@@ -1,6 +1,9 @@
 import dns from "node:dns";
 dns.setServers(['8.8.8.8', '8.8.4.4']);
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
@@ -32,6 +35,7 @@ export default function RootLayout({ children }) {
       <body className="">
         <Navbar></Navbar>
         <main className=" bg-[#080d0f]"><div className="max-w-7xl mx-auto">{children}</div></main>
+          <ToastContainer  autoClose={2000}/>
         <Footer></Footer>
         </body>
     </html>

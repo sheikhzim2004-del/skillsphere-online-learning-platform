@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
 
@@ -26,10 +27,10 @@ export default function RegisterPage() {
         console.log(res, error);
 
         if (error) {
-            alert("Registration failed: " + error.message);
+            toast.error("Registration failed: " + error.message);
         }
         if (res) {
-            alert("Registration successful! Please check your email to verify your account.");
+            toast.success("Registration successful! Please check your email to verify your account.");
         }
 
     };

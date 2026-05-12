@@ -7,6 +7,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { CgGoogle } from "react-icons/cg";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
 
@@ -26,6 +27,13 @@ export default function LoginPage() {
             callbackURL: "/",
         })
         console.log(res, error);
+
+        if (error) {
+            toast.error("Login failed: " + error.message)
+        }
+        if (res) {
+            toast.success("Login successful!" + res.message, )
+        }
     };
 
     const hendleGoogleLoginFunc = async () => {
