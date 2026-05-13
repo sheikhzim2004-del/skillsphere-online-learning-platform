@@ -7,6 +7,7 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { router } from "better-auth/api";
 
 export default function RegisterPage() {
 
