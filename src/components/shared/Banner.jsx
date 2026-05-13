@@ -4,6 +4,8 @@ import bannerImg from "@/assets/banner-image.png";
 import { IoRocket } from "react-icons/io5";
 import { FaUserGraduate } from "react-icons/fa";
 import Link from "next/link";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 
 const label = [
@@ -12,7 +14,16 @@ const label = [
   { number: "4.9★", label: "Avg Rating" },
 ];
 
-export default function Banner() {
+export default async function Banner() {
+
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
+
+  if(!session){
+    return null;
+  }
+
   return (
     <section className="relative w-full min-h-\[500px\] bg-[#080d0f] overflow-hidden flex items-center">
 

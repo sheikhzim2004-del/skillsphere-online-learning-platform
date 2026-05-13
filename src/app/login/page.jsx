@@ -37,14 +37,15 @@ export default function LoginPage() {
     };
 
     const hendleGoogleLoginFunc = async () => {
-        await authClient.linkSocial({
-            provider: "google"
+        await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/"
         })
     }
 
     return (
 
-        <div className='min-h-[80hv] flex flex-col justify-center items-center mt-6 container mx-auto rounded-xl p-8'>
+        <div className='min-h-[80vh] flex flex-col justify-center items-center mt-6 container mx-auto rounded-xl p-8'>
             <div className='rounded-xl p-4 border border-teal-300 shadow-md shadow-teal-300/50 w-full max-w-md'>
                 <h1 className='text-4xl font-bold text-center mb-4 mt-6'>Login to Your Account</h1>
 

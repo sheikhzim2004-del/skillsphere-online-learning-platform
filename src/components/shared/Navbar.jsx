@@ -10,8 +10,11 @@ import { authClient } from "@/lib/auth-client";
 export default function Navbar() {
   const [openBar, setOpenBar] = useState(false);
 
-  const userData = authClient.useSession();
-  const user = userData?.data?.user;
+  // const userData = authClient.useSession();
+  // const user = userData?.data?.user;
+  
+  const { data: session, isPending } = authClient.useSession();
+  const user = session?.user;
   console.log(user);
 
   const handleLogout = async () => {
@@ -90,23 +93,19 @@ export default function Navbar() {
           </div>
 
           {/* Auth Buttons */}
-          {!user && <div className="hidden md:flex items-center gap-3">
-            <Link href={"/login"}>
-              <Button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium">
-                Login
-              </Button>
-            </Link>
-
-            <Link href={"/register"}>
-              <Button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium">
-                Register
-              </Button>
-            </Link>
-          
-          </div>}
-
-          {
-            user && <div className="flex items-center gap-4">
+          {isPending ? (
+            <div className="w-8 h-8 rounded-full bg-gray-600 animate-pulse" />
+          ) : !user ? (
+            <div className="hidden md:flex items-center gap-3">
+              <Link href="/login">
+                <Button>Login</Button>
+              </Link>
+              <Link href="/register">
+                <Button>Register</Button>
+              </Link>
+            </div>
+          ) : (
+            <div className="flex items-center gap-4">
               <p>Hellow, {user.name}</p>
               <Avatar>
                 <Avatar.Image
@@ -119,7 +118,7 @@ export default function Navbar() {
                 Logout
               </Button>
             </div>
-          }
+          )}
         </div>
       </div>
     </nav>
