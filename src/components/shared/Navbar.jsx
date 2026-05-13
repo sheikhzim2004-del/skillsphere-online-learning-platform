@@ -4,10 +4,20 @@ import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
   const [openBar, setOpenBar] = useState(false);
+
+  const userData = authClient.useSession();
+  const user = userData?.data?.user;
+  console.log(user);
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+  }
+
   return (
     <nav className="border-b border-gray-200 bg-black/90 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +90,7 @@ export default function Navbar() {
           </div>
 
           {/* Auth Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          {!user && <div className="hidden md:flex items-center gap-3">
             <Link href={"/login"}>
               <Button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium">
                 Login
@@ -92,8 +102,22 @@ export default function Navbar() {
                 Register
               </Button>
             </Link>
-
-          </div>
+          </div>}
+          {
+            user && <div className="flex items-center gap-4">
+              <p>Hellow, {user.name}</p>
+              <Avatar>
+                <Avatar.Image
+                  alt="John Doe"
+                  src={user.image}
+                  referrerPolicy="no-referrer" />
+                <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
+              </Avatar>
+              <Button variant="danger" className="btn px-5 py-2 rounded-xl border border-gray-300 hover:bg-white hover:text-blue-500 cursor-pointer transition font-medium" onClick={handleLogout}>
+                Logout
+              </Button>
+            </div>
+          }
         </div>
       </div>
     </nav>
