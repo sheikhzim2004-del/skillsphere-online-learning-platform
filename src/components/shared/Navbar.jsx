@@ -102,13 +102,15 @@ export default function Navbar() {
                 Register
               </Button>
             </Link>
+          
           </div>}
+
           {
             user && <div className="flex items-center gap-4">
               <p>Hellow, {user.name}</p>
               <Avatar>
                 <Avatar.Image
-                  alt="John Doe"
+                  alt={user.name}
                   src={user.image}
                   referrerPolicy="no-referrer" />
                 <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>

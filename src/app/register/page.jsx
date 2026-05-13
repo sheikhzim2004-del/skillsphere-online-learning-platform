@@ -20,9 +20,8 @@ export default function RegisterPage() {
             name,
             email,
             password,
-            photoUrl,
+            image: photoUrl,
             callbackURL: "/login",
-
         })
         console.log(res, error);
 
