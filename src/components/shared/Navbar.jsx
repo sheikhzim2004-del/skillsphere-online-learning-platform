@@ -12,7 +12,7 @@ export default function Navbar() {
 
   // const userData = authClient.useSession();
   // const user = userData?.data?.user;
-  
+
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
   console.log(user);
@@ -62,10 +62,13 @@ export default function Navbar() {
               height={300}
             />
           </div>
+          {/* mobile device e  */}
           <div className="md:hidden">
-            <button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:text-blue-500 cursor-pointer transition font-medium">
-              Login
-            </button>
+            {
+              user && <button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:text-blue-500 cursor-pointer transition font-medium">
+                Login
+              </button>
+            }
           </div>
 
           {/* Desktop Menu */}

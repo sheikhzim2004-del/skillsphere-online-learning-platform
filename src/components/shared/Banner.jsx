@@ -9,8 +9,8 @@ import { headers } from "next/headers";
 
 
 const label = [
-  { number: "200+", label: "Courses" },
-  { number: "50K+", label: "Students" },
+  { number: "5+", label: "Courses" },
+  { number: "6K+", label: "Students" },
   { number: "4.9★", label: "Avg Rating" },
 ];
 
@@ -20,9 +20,9 @@ export default async function Banner() {
     headers: await headers()
   })
 
-  if(!session){
-    return null;
-  }
+  // if(!session){
+  //   return null;
+  // }
 
   return (
     <section className="relative w-full min-h-\[500px\] bg-[#080d0f] overflow-hidden flex items-center">
