@@ -100,7 +100,7 @@ export default async function Banner() {
               <span className="text-2xl text-teal-500"><IoRocket /></span>
               <div>
                 <p className="text-yellow-400 text-xs font-bold">Start Learning</p>
-                <p className="text-teal-300/70 text-xs">Join 50,000+ students</p>
+                <p className="text-teal-300/70 text-xs">Join 6,000+ students</p>
               </div>
             </div>
           </div>
