@@ -109,7 +109,7 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex items-center gap-4">
-              <p>Hellow, {user.name}</p>
+              <p className="hidden md:flex">Hellow, {user.name}</p>
               <Avatar>
                 <Avatar.Image
                   alt={user.name}
