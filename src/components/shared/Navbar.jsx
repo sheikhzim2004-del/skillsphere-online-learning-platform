@@ -64,9 +64,9 @@ export default function Navbar() {
           </div>
           {/* mobile device  */}
           { !user && <div className="md:hidden">
-            <Link href="/login">
+            <Link href="/register">
               <button className="btn px-5 py-2 rounded-xl border border-gray-300 hover:text-blue-500 cursor-pointer transition font-medium">
-                Login
+                Register
               </button>
             </Link>
           </div>}
