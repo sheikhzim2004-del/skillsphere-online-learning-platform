@@ -22,7 +22,7 @@ const Category = () => {
     return (
         <div>
             {/* Search and Filter */}
-            <div className='flex gap-4 justify-center py-6'>
+            <div className='flex-col md:flex items-center gap-4 justify-center py-6'>
                 <select
                     onChange={(e) => setSelectedCategory(e.target.value)}
                     className="px-5 py-3 bg-zinc-100 dark:bg-zinc-800 border border-transparent focus:border-orange-500 rounded-xl outline-none text-lg"
