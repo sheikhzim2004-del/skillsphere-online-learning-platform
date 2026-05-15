@@ -39,15 +39,15 @@ export default function Navbar() {
               <div className="absolute left-4 mt-2 border rounded-xl shadow-xl p-3 space-y-2">
                 <Link
                   href={"/"}
-                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                  className="block px-2 text-center rounded-xl  border text-white bg-teal-950 transition border-blue-500"
                 >Home</Link>
                 <Link
                   href={"/all-courses"}
-                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                  className="block px-2 text-center rounded-xl  border text-white bg-teal-950 transition border-blue-500"
                 >Courses</Link>
                 <Link
                   href={"/profile"}
-                  className="block px-2 text-center rounded-xl  border hover:text-black hover:bg-white transition border-blue-500"
+                  className="block px-2 text-center rounded-xl  border text-white bg-teal-950 transition border-blue-500"
                 >My Profile</Link>
               </div>
             )}
